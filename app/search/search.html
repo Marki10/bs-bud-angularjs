@@ -13,17 +13,31 @@
     <ul class="repo-list col-md-12" ng-if="$ctrl.repositorys !== undefined" ng-repeat="repository in $ctrl.repositorys">
       <li class="repo-list__item">
         <div class="repo-list__basic-details">
-          <h4 class="repo-list__title"><a ui-sref="app.issues({repo_name: repository.full_name})">{{
-              repository.full_name }}</a></h4>
+          <h4 class="repo-list__title">
+            <a href="{{ repository.html_url }}">{{ repository.full_name }}</a>
+            <a ui-sref="app.issues({repo_name: repository.full_name})" class="repo-list__go-to-link">Check the issues</a>
+          </h4>
           <p class="repo-list__description">{{ repository.description }}</p>
-          <span class="author">{{ repository.owner.login }}</span>
-          <span class="author">{{ repository.language }}</span>
-          <span class="author">{{ repository.license.name }}</span>
+          <span class="repo-list__label" ng-if="repository.owner.login !== ''">{{ repository.owner.login }}</span>
+          <span class="repo-list__label" ng-if="repository.language !== ''">{{ repository.language }}</span>
+          <span class="repo-list__label" ng-if="repository.license.name !== ''">{{ repository.license.name }}</span>
         </div>
         <div class="repo-list__repo-data">
-          <div class="stargazers">Stargazers: {{ repository.stargazers_count }}</div>
-          <div class="stargazers">Forks: {{ repository.forks_count }}</div>
-          <div class="stargazers">Issues: {{ repository.open_issues_count }}</div>
+          <div class="repo-list__stargazers">
+            <i class="fas fa-star icons">
+              <span class="tooltip">Stargazers: {{ repository.stargazers_count }}</span>
+            </i>
+          </div>
+          <div class="repo-list__forks">
+            <i class="fas fa-code-branch icons">
+              <span class="tooltip">Forks: {{ repository.forks_count }}</span>
+            </i>
+          </div>
+          <div class="repo-list__issues">
+            <i class="fas fa-exclamation-triangle icons">
+              <span class="tooltip">Issues: {{ repository.open_issues_count }}</span>
+            </i>
+          </div>
         </div>
       </li>
     </ul>

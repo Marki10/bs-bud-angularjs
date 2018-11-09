@@ -4,58 +4,70 @@
 
 .repo-list {
   padding: 0;
+
   &__item {
     list-style-type: none;
     border-bottom: 1px solid #eee;
     padding: 10px;
     margin: 10px;
     display: flex;
+
     &:last-child {
       border-bottom: 0;
     }
   }
+
   &__title {
     color: #553a7c;
     font-weight: bold;
     cursor: pointer;
   }
+  &__go-to-link {
+    color: #3da03d;
+    margin-left: 20px;
+    font-size: 17px;
+
+    &:hover {
+      color: #4acc4a;
+    }
+  }
+
   &__description {
     text-align: justify;
     font-size: 15px;
     color: #777;
+    margin-bottom: 30px;
   }
-  &__author {
+
+  &__hor {
     font-style: italic;
     font-size: 14px;
     color: #444;
   }
+
   &__basic-details {
     flex: 7;
   }
+
   &__repo-data {
     text-align: right;
     padding: 40px 20px;
     flex: 3;
   }
-}
+  &__stargazers {
+    color: #fdba3b;
+  }
+  &__forks {
+    color: #46961e;
+  }
+  &__issues {
+    color: #e62222;
+  }
 
-.no-result {
-  width: 100%;
-  min-height: 450px;
-  background-image: url('https://lh3.googleusercontent.com/gPT2FaMFekwkQwicxgr0UAS5Y5Ux22OOaWGvlIu3MXq_tVvINXIl8xe05CIyJmfG6BC7vAr8Aw=w328-h348-no');
-  background-repeat: no-repeat;
-  background-size: 200px;
-  background-position: 50% 40%;
-  position: relative;
-  &::after {
-    content: 'No ... senor repository no here!';
-    font-size: 2rem;
-    font-family: Sans-serif;
-    font-weight: bold;
-    color: #575757;
-    position: absolute;
-    width: 100%;
-    bottom: 10%;
-    text-align: center;
+  &__label {
+    padding: 5px 7px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    border-radius: 5px;
   }
 }

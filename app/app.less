@@ -2,6 +2,20 @@
 @import './style/search.less';
 @import './style/issues.less';
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+
 .header {
   border-bottom: 1px solid #ccc;
   padding: 10px;
@@ -10,4 +24,71 @@
 .footer {
   border-top: 1px solid #ccc;
   padding: 10px;
+}
+.no-result {
+  width: 100%;
+  min-height: 450px;
+  background-image: url('https://lh3.googleusercontent.com/gPT2FaMFekwkQwicxgr0UAS5Y5Ux22OOaWGvlIu3MXq_tVvINXIl8xe05CIyJmfG6BC7vAr8Aw=w328-h348-no');
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: 50% 40%;
+  position: relative;
+
+  &::after {
+    content: 'No ... senor repository no here!';
+    font-size: 2rem;
+    font-family: Sans-serif;
+    font-weight: bold;
+    color: #575757;
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    text-align: center;
+  }
+}
+
+.icons {
+  text-align: center;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+  width: 27%;
+  
+  &:hover {
+    .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    width: 130px;
+    background-color: black;
+    color: #3B3B3B;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -65px;
+    background-color: #E8E8E8;
+    opacity:0;
+    transition: visibility .1s linear,opacity .1s linear;
+    box-shadow: 4px 3px 7px #caabab;
+    
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #E8E8E8 transparent transparent transparent;
+    }
+  }
 }
