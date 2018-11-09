@@ -1,7 +1,10 @@
-<div class="row">
-    <div class="col-md-12">
-        <h4 class="text-center">
-            {{ $ctrl.issues }}
-        </h4>
-    </div>
+<div class="issues__container">
+    <div class="no-result" ng-if="$ctrl.issues === undefined || $ctrl.issues === []"></div>
+    <ul class="issues__items" ng-if="$ctrl.issues !== undefined || $ctrl.issues !== []" ng-repeat="issue in $ctrl.issues">
+        <li class="issues__item">
+            <span class="issues__state">{{ issue.state }}</span>
+            <h5 class="issues__title"><a href="{{ issue.url }}">{{ issue.title }}</a></h5>
+            <p class="issues__description">{{ issue.body }}</p>
+        </li>
+    </ul>
 </div>

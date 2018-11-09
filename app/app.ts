@@ -17,17 +17,15 @@ export let app = module('app', [
       name: 'app',
       url: '/app',
       component: AppComponent.NAME
-    }).state(
-      {
-        name: 'app.search',
-        url: '/search',
-        component: SearchComponent.NAME
-      }).state(
-        {
-          name: 'app.issues',
-          url: '/issues?repo_name',
-          component: IssuesComponent.NAME,
-        });
+    }).state({
+      name: 'app.search',
+      url: '/search',
+      component: SearchComponent.NAME
+    }).state({
+      name: 'app.issues',
+      url: '/issues?repo_name',
+      component: IssuesComponent.NAME,
+    });
 
     $urlRouterProvider.otherwise('/app');
   }])
@@ -36,6 +34,7 @@ export let app = module('app', [
   .component(IssuesComponent.NAME, new IssuesComponent())
   .service(RepositoryService.NAME, RepositoryService)
   .service(IssuesService.NAME, IssuesService);
+
 element(document).ready(() => {
   bootstrap(document, ['app']);
 });

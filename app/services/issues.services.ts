@@ -5,6 +5,6 @@ export class IssuesService {
   constructor(protected $q: ng.IQService, protected $http: ng.IHttpService) { }
 
   public getIssues(repoName): angular.IHttpPromise<any> {
-    return this.$http.get('https://api.github.com/search/repositories?q=' + repoName);
+    return this.$http.get('https://api.github.com/search/issues?q=repo:' + repoName);
   }
 }

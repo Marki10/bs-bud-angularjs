@@ -1,21 +1,17 @@
-<nav class="navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a ui-sref="app.search">search</a>
-                        </li>
-                        <li> <a ui-sref="app.issues">issues</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<header class="container header">
+    <ul class="nav navbar-nav">
+        <li>
+            <a ui-sref="app.search">Home</a>
+        </li>
+    </ul>
+</header>
+<main class="container">
+    <ui-view>
+        <div class="loading">
+            Loading ...
         </div>
-    </div>
-
-</nav>
-<div class="container-fluid">
-    <ui-view></ui-view>
-</div>
+    </ui-view>
+</main>
+<footer class="container footer">
+    <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa.</p>
+</footer>

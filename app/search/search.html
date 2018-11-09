@@ -1,11 +1,10 @@
 <main class="container">
-  <div class="row">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Repo name" aria-label="Recipient's username"
-        aria-describedby="basic-addon2" ng-model="searchText">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" ng-click="$ctrl.getRepositories(searchText)">Search</button>
-      </div>
+  <div class="row search-section">
+    <div class="input-group col-md-12">
+      <input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="$ctrl.getRepositories(searchText)">Search</button>
+      </span>
     </div>
   </div>
 
