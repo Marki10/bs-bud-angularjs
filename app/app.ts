@@ -3,8 +3,9 @@ import { module, element, bootstrap, ILogService } from 'angular';
 import '@uirouter/angularjs';
 import { AppComponent } from '../app/app.component';
 import { SearchComponent } from './search/search.component';
-import { RepositoryComponent } from '../app/repository/repository.component';
+import { IssuesComponent } from './issues/issues.component';
 import { RepositoryService } from './services/repository.services';
+import { IssuesService } from './services/issues.services';
 
 import './app.less';
 
@@ -23,17 +24,18 @@ export let app = module('app', [
         component: SearchComponent.NAME
       }).state(
         {
-          name: 'app.repository',
-          url: '/repository?id',
-          component: RepositoryComponent.NAME,
+          name: 'app.issues',
+          url: '/issues?repo_name',
+          component: IssuesComponent.NAME,
         });
 
     $urlRouterProvider.otherwise('/app');
   }])
   .component(AppComponent.NAME, new AppComponent())
   .component(SearchComponent.NAME, new SearchComponent())
-  .component(RepositoryComponent.NAME, new RepositoryComponent())
-  .service(RepositoryService.NAME, RepositoryService);
+  .component(IssuesComponent.NAME, new IssuesComponent())
+  .service(RepositoryService.NAME, RepositoryService)
+  .service(IssuesService.NAME, IssuesService);
 element(document).ready(() => {
   bootstrap(document, ['app']);
 });
